@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhizhou He</title>
+<meta name="description" content="Zhizhou He — Senior Research Fellow at the 5G/6G Innovation Centre, University of Surrey. Agentic AI-RAN, Open RAN digital twins, reinforcement learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfbf9; --surface:#ffffff; --text:#1d2130; --muted:#5c6273; --faint:#8b90a0;
+    --line:#e6e6e1; --accent:#2f4a9a; --accent-soft:#eef1fa; --gold:#9a6a12; --gold-soft:#fbf3e3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#14161c; --surface:#1b1e26; --text:#e7e8ec; --muted:#a3a8b6; --faint:#7d8292;
+      --line:#2b2f3a; --accent:#9db2f2; --accent-soft:#232a40; --gold:#e3b55c; --gold-soft:#2e2718;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14161c; --surface:#1b1e26; --text:#e7e8ec; --muted:#a3a8b6; --faint:#7d8292;
+    --line:#2b2f3a; --accent:#9db2f2; --accent-soft:#232a40; --gold:#e3b55c; --gold-soft:#2e2718;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:56px;overflow-x:auto;white-space:nowrap}
+  nav .brand{font-weight:600;color:var(--text);margin-right:auto}
+  nav a.l{color:var(--muted);font-size:14px}
+  nav a.l:hover{color:var(--text);text-decoration:none}
+  #theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;width:32px;height:32px;cursor:pointer;flex:none}
+
+  header.hero{padding:56px 0 32px;display:grid;grid-template-columns:132px 1fr;gap:32px;align-items:center}
+  .avatar{width:132px;height:132px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;font:600 40px/1 "Source Serif 4",serif;color:var(--accent);overflow:hidden;border:1px solid var(--line)}
+  .avatar img{width:100%;height:100%;object-fit:cover}
+  h1{font:600 38px/1.15 "Source Serif 4",Georgia,serif;margin:0 0 6px;letter-spacing:-.01em}
+  .role{color:var(--muted);margin:0 0 14px}
+  .links{display:flex;flex-wrap:wrap;gap:8px}
+  .links a{font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);padding:5px 12px;border-radius:999px}
+  .links a:hover{border-color:var(--accent);text-decoration:none}
+
+  section{padding:28px 0;border-top:1px solid var(--line)}
+  h2{font:600 24px/1.3 "Source Serif 4",Georgia,serif;margin:0 0 16px}
+  h3{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin:26px 0 10px}
+  p{margin:0 0 12px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tags span{font-size:13px;background:var(--accent-soft);color:var(--accent);padding:4px 10px;border-radius:6px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .stat b{display:block;font:600 24px/1.2 "Source Serif 4",serif}
+  .stat span{font-size:13px;color:var(--muted)}
+
+  ol.pubs{list-style:none;margin:0;padding:0;counter-reset:p}
+  ol.pubs li{display:grid;grid-template-columns:76px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+  ol.pubs li:last-child{border-bottom:0}
+  .if{align-self:start;text-align:center;border-radius:8px;padding:6px 4px;background:var(--gold-soft);color:var(--gold);font-size:12px;line-height:1.25}
+  .if b{display:block;font-size:17px}
+  .if.none{background:var(--accent-soft);color:var(--accent)}
+  .ptitle{font-weight:600;margin-bottom:2px}
+  .pauth{color:var(--muted);font-size:14.5px}
+  .pauth .me{color:var(--text);font-weight:600}
+  .pvenue{font-size:14.5px;font-style:italic}
+  .plinks{margin-top:4px;display:flex;gap:12px;font-size:13.5px}
+
+  .item{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:12px 0}
+  .item .t{font-weight:600}
+  .item .d{color:var(--faint);font-size:14px;white-space:nowrap}
+  .item .s{grid-column:1/-1;color:var(--muted);font-size:15px}
+
+  footer{color:var(--faint);font-size:13px;padding:32px 0 48px;border-top:1px solid var(--line)}
+
+  @media (max-width:640px){
+    header.hero{grid-template-columns:1fr;gap:18px;padding-top:36px}
+    .avatar{width:96px;height:96px;font-size:30px}
+    h1{font-size:30px}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    ol.pubs li{grid-template-columns:1fr;gap:6px}
+    .if{justify-self:start;padding:3px 10px}
+    .if b{display:inline;font-size:13px;margin-right:4px}
+    .item{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#top">Zhizhou He</a>
+  <a class="l" href="#about">About</a>
+  <a class="l" href="#publications">Publications</a>
+  <a class="l" href="#projects">Projects</a>
+  <a class="l" href="#experience">Experience</a>
+  <button id="theme" aria-label="Toggle dark mode" title="Toggle theme">◐</button>
+</div></nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <!-- To use a photo: put photo.jpg next to this file and replace "ZH" with <img src="photo.jpg" alt="Zhizhou He"> -->
+    <div class="avatar"><img src="photo.jpg" alt="Portrait of Zhizhou He"></div>
+    <div>
+      <h1>Zhizhou He</h1>
+      <p class="role">Senior Research Fellow · 5G/6G Innovation Centre, Institute for Communication Systems, University of Surrey, UK</p>
+      <div class="links">
+        <a href="mailto:dr.zhizhouhe@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=QIAptvAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://openresearch.surrey.ac.uk/esploro/profile/zhizhou_he/output/all?institution=44SUR_INST" target="_blank" rel="noopener">Surrey Open Research</a>
+        <!-- <a href="https://github.com/YOUR-USERNAME">GitHub</a> -->
+        <a href="https://www.linkedin.com/in/zhizhou-he-25331414a/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a Senior Research Fellow at the 5G/6G Innovation Centre (5GIC/6GIC), University of Surrey, where I also received my Ph.D. in Information and Wireless Communication Systems. My research builds AI-native radio access networks: agentic, intent-driven intelligence for the O-RAN RIC, digital twins for safe training of xApp controllers, and reinforcement-learning and generative methods for radio-resource management.</p>
+    <p>I lead the technical work on projects under the EPSRC CHEDDAR 6G Hub (ORAN-TWIN, ORAN-TWIN-X and Assurance O-RAN) and on industry-funded work on LLM pipelines, and I work closely with partners including Keysight, Samsung and Huawei. I also mentor Ph.D. students in our group.</p>
+    <div class="tags">
+      <span>Agentic AI-RAN</span><span>Open RAN · RIC / xApps</span><span>Digital twins</span><span>Multi-agent RL</span><span>Diffusion policies</span><span>Explainable AI &amp; LLMs</span><span>RIS-assisted MIMO</span>
+    </div>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <p style="color:var(--muted);font-size:14.5px">Journal papers are ordered by journal Impact Factor (Clarivate JCR); conference papers by year. Full list on <a href="https://scholar.google.com/citations?user=QIAptvAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <h3>Journal articles</h3>
+    <ol class="pubs" id="journals"></ol>
+    <h3>Conference papers</h3>
+    <ol class="pubs" id="conferences"></ol>
+  </section>
+
+  <section id="projects">
+    <h2>Research projects</h2>
+    <div class="item"><div class="t">EPSRC CHEDDAR 3.5 &amp; 4.0 6G Hub (ORAN-TWIN, ORAN-TWIN-X &amp; Assurance O-RAN)</div><div class="d">2024 – present</div>
+      <div class="s">Lead researcher and principal proposal author. Multi-agent RL for radio-resource allocation in O-RAN, trained safely and at scale in a digital twin; continual, rule-based surrogates that make the learned policies explainable and connect them to LLM reasoning at the Non-RT RIC. Technical coordinator of a consortium of Surrey, York, Leeds and BCU with industry partners.</div></div>
+    <div class="item"><div class="t">LLM Engineering-Project-Delivery (EPD) pipeline — Huawei / Datacom Industry Association</div><div class="d">Industry-funded</div>
+      <div class="s">Drafted the bid and led technical scoping for an industrial LLM pipeline, owning deliverables and partner reporting.</div></div>
+    <div class="item"><div class="t">ORCA — Safety-by-Design Autonomy: Conflict Arbitration for Multi-Vendor Open RAN</div><div class="d">EPSRC</div>
+      <div class="s">Co-authored the proposal; research on safe arbitration between conflicting xApps from multiple vendors.</div></div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience &amp; education</h2>
+    <div class="item"><div class="t">Senior Research Fellow, University of Surrey</div><div class="d">2026 – present</div>
+      <div class="s">5G/6G Innovation Centre. Technical lead on EPSRC CHEDDAR Hub projects; agentic AI-RAN, explainable closed-loop control and O-RAN assurance.</div></div>
+    <div class="item"><div class="t">Postdoctoral Research Fellow, University of Surrey</div><div class="d">Jun 2024 – 2026</div>
+      <div class="s">5G/6G Innovation Centre. O-RAN digital twins and RL-based xApp coordination; prototypes on FlexRIC and VIAVI RIC-tester.</div></div>
+    <div class="item"><div class="t">Ph.D., Information and Wireless Communication Systems, University of Surrey</div><div class="d">2024</div>
+      <div class="s">Thesis: <i>Machine Learning for Channel Estimation and Optimization in RIS-assisted Communication Systems</i>.</div></div>
+    <div class="item"><div class="t">M.Sc., University of Surrey</div><div class="d">2019 – 2020</div></div>
+    <div class="item"><div class="t">B.Eng., University of Bristol</div><div class="d">2015 – 2019</div></div>
+
+  </section>
+
+  <footer>© <span id="yr"></span> Zhizhou He · Last updated October 2026</footer>
+</main>
+
+<script>
+/* =====================================================================
+   PUBLICATIONS — edit here.
+   if:   journal Impact Factor (number) from Clarivate JCR. Journals are
+         sorted by this value, highest first. Leave null if unknown;
+         those journals are placed after the ones with a value, in the
+         order given by "rank".
+   ifYear: the JCR year the value comes from, e.g. "JCR 2025".
+   ===================================================================== */
+const ME = "Zhizhou He";
+const journals = [
+  { title: "Agentic AI-RAN: Enabling Intent-Driven, Explainable and Self-Evolving Open RAN Intelligence",
+    authors: ["Zhizhou He","Yang Luo","Xinkai Liu","Mahdi Boloursaz Mashhadi","Mohammad Shojafar","Merouane Debbah","Rahim Tafazolli"],
+    venue: "IEEE Network", year: 2026, if: 6.3, ifYear: "JCR 2024", rank: 1,
+    links: { DOI: "https://doi.org/10.1109/MNET.2026.3711017", arXiv: "https://arxiv.org/abs/2602.24115" } },
+  { title: "Digital Twin-Enhanced Reinforcement Learning for Intelligent xApps Management in O-RAN Systems",
+    authors: ["Zhizhou He","Ahmed Al-Tahmeesschi","Chuan Heng Foh","Hamed Ahmadi","Mohammad Shojafar"],
+    venue: "IEEE Internet of Things Magazine", year: 2025, if: 5.8, ifYear: "JCR 2025", rank: 2,
+    links: { DOI: "https://doi.org/10.1109/MIOT.2025.3604534" } },
+  { title: "Service-Oriented Attention HAPPO for xApps Coordination in Digital Twin-Enabled AI-RAN",
+    authors: ["Zhizhou He","Mohammad Shojafar","Rahim Tafazolli"],
+    venue: "IEEE Transactions on Network and Service Management", year: 2026, if: 5.7, ifYear: "JCR 2025", rank: 3,
+    links: { DOI: "https://doi.org/10.1109/TNSM.2026.3710685" } },
+  { title: "Self-supervised Contrastive Learning for Joint Active and Passive Beamforming in RIS-assisted MU-MIMO Systems",
+    authors: ["Zhizhou He","Fabien Héliot","Yi Ma"],
+    venue: "IEEE Transactions on Machine Learning in Communications and Networking, vol. 3", year: 2024, if: 4.9, ifYear: "JCR 2025", rank: 4,
+    links: { DOI: "https://doi.org/10.1109/TMLCN.2024.3515913" } },
+  { title: "Diffusion Policies Reinforcement Learning for Resource Allocation in Open RAN Digital Twin",
+    authors: ["Zhizhou He","Mohammad Shojafar","Chuan Heng Foh","Rahim Tafazolli"],
+    venue: "IEEE Networking Letters, vol. 8", year: 2026, if: 3.3, ifYear: "JCR 2025", rank: 5,
+    links: { IEEE: "https://ieeexplore.ieee.org/document/11357509" } },
+];
+const conferences = [
+  { title: "Explainable Closed-Loop Control in O-RAN via XAI-Augmented Reinforcement Learning",
+    authors: ["Zhizhou He","Wenzhuo Ai","Huijun Tang","Chuan H. Foh","Mohammad Shojafar"],
+    venue: "IEEE/CIC ICCC 2026, Wuhan, China", year: 2026 },
+  { title: "Explainable AI-Based Feature Selection Method for Energy Harvesting-Assisted IoT Network",
+    authors: ["H. Tang","W. Zeng","M. Xue","J. Du","Zhizhou He","P. Jiao","H. Wu","H. Sun"],
+    venue: "15th International Symposium on Communication Systems, Networks and Digital Signal Processing (CSNDSP 2026)", year: 2026 },
+  { title: "GNN-based Spatial-Adaptive Joint Beamforming for UAV-RIS Systems",
+    authors: ["H. Tang","Zhizhou He","Z. Wei","W. Tu","H. Sun"],
+    venue: "IEEE Canada", year: 2026 },
+  { title: "Heterogeneous-Agent PPO RL for xApps Coordination in Digital Twin Enabled O-RAN",
+    authors: ["Zhizhou He","Yang Luo","Mohammad Shojafar","De Mi"],
+    venue: "IEEE/CIC ICCC 2025", year: 2025 },
+  { title: "Deterministic Score-based Diffusion Model for Channel Estimation in RIS-assisted MIMO Systems",
+    authors: ["Zhizhou He","Fabien Héliot","Yi Ma"], venue: "IEEE SPAWC 2025, Surrey, UK", year: 2025 },
+  { title: "Contrastive Learning for Distortion Tolerable Network Slice Prediction in Open RAN",
+    authors: ["Zhizhou He","Hamed Alimohammadi","Sotiris Chatzimiltis","Samara Mayhoub","Mona Akbari","Mohammad Shojafar"],
+    venue: "IEEE WCNC 2025, Milan, Italy", year: 2025 },
+  { title: "A New Sub-Use Case for Signaling Storm Attack in Open RAN and an ML-based Detection Approach",
+    authors: ["Samara Mayhoub","Sotiris Chatzimiltis","Hamed Alimohammadi","Zhizhou He","Sulyman Abdulkareem","Mohammad Shojafar","Ayhan Akbas","Chuan Heng Foh"],
+    venue: "IEEE CSCN 2024, Belgrade, Serbia, pp. 308–313", year: 2024 },
+  { title: "CNN-enabled Joint Active and Passive Beamforming for RIS-assisted MU-MIMO Systems",
+    authors: ["Zhizhou He","Fabien Héliot","Yi Ma"], venue: "IEEE VTC2023-Spring, Florence, Italy", year: 2023 },
+  { title: "Machine Learning for IRS-Assisted MU-MIMO Communications with Estimated Channels",
+    authors: ["Zhizhou He","Fabien Héliot","Yi Ma"], venue: "IEEE VTC2022-Spring, Helsinki, Finland", year: 2022 },
+];
+
+/* ---------------- rendering (no need to edit below) ---------------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const authors = a => a.map(n => n === ME ? `<span class="me">${esc(n)}</span>` : esc(n)).join(", ");
+const linkRow = l => { const k = Object.keys(l || {}); return k.length ? `<div class="plinks">${k.map(x => `<a href="${esc(l[x])}" target="_blank" rel="noopener">${esc(x)}</a>`).join("")}</div>` : ""; };
+
+journals.sort((a, b) => {
+  if (a.if != null && b.if != null) return b.if - a.if;
+  if (a.if != null) return -1;
+  if (b.if != null) return 1;
+  return a.rank - b.rank;
+});
+document.getElementById("journals").innerHTML = journals.map(p => `
+  <li>
+    ${p.if != null ? `<div class="if" title="${esc(p.ifYear)}"><b>${p.if.toFixed(1)}</b>IF</div>` : `<div class="if none"><b>J</b>Journal</div>`}
+    <div>
+      <div class="ptitle">${esc(p.title)}</div>
+      <div class="pauth">${authors(p.authors)}</div>
+      <div class="pvenue">${esc(p.venue)}${p.year ? `, ${p.year}` : ""}</div>
+      ${linkRow(p.links)}
+    </div>
+  </li>`).join("");
+
+conferences.sort((a, b) => b.year - a.year);
+document.getElementById("conferences").innerHTML = conferences.map(p => `
+  <li>
+    <div class="if none"><b>C</b>${p.year}</div>
+    <div>
+      <div class="ptitle">${esc(p.title)}</div>
+      <div class="pauth">${authors(p.authors)}</div>
+      <div class="pvenue">${esc(p.venue)}</div>
+      ${linkRow(p.links)}
+    </div>
+  </li>`).join("");
+
+const first = [...journals, ...conferences].filter(p => p.authors[0] === ME).length;
+document.getElementById("stats").innerHTML = [
+  [journals.length, "Journal articles"], [conferences.length, "Conference papers"],
+  [first, "First-author papers"], ["3", "Funded projects"]
+].map(([n, l]) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`).join("");
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* theme toggle (remembered per browser) */
+const btn = document.getElementById("theme");
+try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+btn.onclick = () => {
+  const dark = document.documentElement.dataset.theme
+    ? document.documentElement.dataset.theme === "dark"
+    : matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = dark ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch (e) {}
+};
+</script>
+</body>
+</html>
